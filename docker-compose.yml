@@ -1,0 +1,10 @@
+services:
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_USER: charge
+      POSTGRES_PASSWORD: charge
+    ports:
+      - 5432:5432
+    volumes:
+      - .C:\Users\Wiser\Bruno-Git\postgres
