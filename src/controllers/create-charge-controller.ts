@@ -34,6 +34,7 @@ export class ChargeController {
     });
 
     console.log(req.body);
+
     return res.status(201).json(req.body);
   }
 }
