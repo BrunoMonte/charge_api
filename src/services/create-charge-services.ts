@@ -20,9 +20,26 @@ export class ChargeGenerateService {
       throw new Error(" Charge already exists");
     }
 
+    if (data.countryCode) {
+      const exist = this.paymentMethodByCountry(
+        data.paymentMethod,
+        data.countryCode
+      );
+      if (!exist) {
+        throw new Error("Payment method is not allowed on this country.");
+      }
+    }
+
     const charge = new ChargeEntities(data);
 
     await this.chargeRepository.save(charge);
+  }
+
+  private async paymentMethodByCountry(
+    paymentMethod: string,
+    countryCode: string
+  ): Promise<Boolean> {
+    return Boolean();
   }
 
   private createPhonePayment(body: any, charge: CreateChargeDTO) {
