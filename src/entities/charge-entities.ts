@@ -19,7 +19,6 @@ export class ChargeEntities {
   // id opcional, pq quando for estanciando new Charge, não vai passar o id pq nao existe ainda.
   // Porem, quando for pegar charge já salva ,e criando uma charge, para código entender essa charge já existe
   constructor(props: Omit<ChargeEntities, "id">, id?: string) {
-    //super();
     Object.assign(this, props);
     if (!id) {
       this.id = randomUUID();
