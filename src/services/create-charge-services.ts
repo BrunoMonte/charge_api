@@ -83,11 +83,11 @@ export class ChargeGenerateService {
 
   async handle(body: any, charge: ChargeEntities) {
     if (body.countryCode) {
-      const ifExists = ChargeGenerateService.getPaymentMethodByCountry(
+      const exists = ChargeGenerateService.getPaymentMethodByCountry(
         body.paymentMethod,
         body.countryCode
       );
-      if (!ifExists) {
+      if (!exists) {
         throw new Error();
       }
     }
