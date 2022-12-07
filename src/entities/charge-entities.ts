@@ -1,17 +1,42 @@
 import { randomUUID } from "crypto";
+import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
+@Entity("charges")
 export class ChargeEntities {
+  @PrimaryGeneratedColumn()
   readonly id: string; // Para não ser alterado, quando ele for setado
+
+  @Column()
   amount: number;
+
+  @Column()
   paymentMethod: string;
+
+  @Column()
   recipientId: string;
+
+  @Column({ nullable: true })
   status: string;
+
+  @Column({ nullable: true })
   transactionReferenceId: string;
+
+  @Column({ type: "uuid" })
   paymentProfileId: string;
+
+  @Column({ type: "uuid" })
   customerId: string;
+
+  @Column({ default: 0 })
   installments: number;
+
+  @Column({ type: "text" })
   countryCode: string;
+
+  @Column({ type: "uuid" })
   originId: string;
+
+  @Column()
   originType: string;
 
   //Quando for criar um new Charge, vai passar todas as propiedade da charge
